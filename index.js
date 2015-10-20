@@ -26,7 +26,7 @@ function JasmineWebpackPlugin(options) {
 function resolveJasmineFiles(dirname, files) {
   dirname = dirname.replace(__dirname, '');
   return files.map(function(file) {
-    return path.join(dirname, file);
+    return path.join('./', dirname, file);
   });
 }
 
