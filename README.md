@@ -8,15 +8,17 @@ fast development.
 
 In your webpack configuration:
 
-    // webpack-test.config.js
+```javascript
+// webpack-test.config.js
 
-    var jasmineWebpackPlugin = require('jasmine-webpack-plugin');
+var jasmineWebpackPlugin = require('jasmine-webpack-plugin');
 
-    module.exports = {
-      entry: ['specRoot.js'],
-      // ... more configuration
-      plugins: [new JasmineWebpackPlugin()]
-    };
+module.exports = {
+  entry: ['specRoot.js'],
+  // ... more configuration
+  plugins: [new JasmineWebpackPlugin()]
+};
+```
 
 ### Options
 
@@ -27,11 +29,13 @@ In your webpack configuration:
 Webpack doesn't support wildcards in config.entry. As a workaround to easily build
 and watch your spec files, you can provide something like this in your entry file:
 
-    // specRoot.js
+```javascript
+// specRoot.js
 
-    const requireAll = (requireContext) => { requireContext.keys().map(requireContext) };
+const requireAll = (requireContext) => { requireContext.keys().map(requireContext); };
 
-    requireAll(require.context('spec/helpers/', true, /\.js$/));
-    requireAll(require.context('spec/', true, /[sS]pec\.js$/));
+requireAll(require.context('spec/helpers/', true, /\.js$/));
+requireAll(require.context('spec/', true, /[sS]pec\.js$/));
+```
 
 See [require.context](https://webpack.github.io/docs/context.html#require-context)
