@@ -1,0 +1,34 @@
+{
+  "name": "jasmine-webpack-plugin",
+  "version": "0.1.0",
+  "description": "Run jasmine specs using webpack or webpack-dev-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iredelmeier/jasmine-webpack-plugin.git"
+  },
+  "keywords": [
+    "jasmine",
+    "webpack",
+    "webpack-plugin",
+    "test",
+    "testing",
+    "spec",
+    "hmr"
+  ],
+  "author": "Isobel Redelmeier <iredelmeier@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iredelmeier/jasmine-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/iredelmeier/jasmine-webpack-plugin#readme",
+  "dependencies": {
+    "html-webpack-plugin": "^1.6.2"
+  },
+  "peerDependencies": {
+    "jasmine-core": "^2.3.4"
+  }
+}
