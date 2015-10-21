@@ -1,6 +1,6 @@
 {
   "name": "jasmine-webpack-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run jasmine specs using webpack or webpack-dev-server",
   "main": "index.js",
   "scripts": {
@@ -26,9 +26,11 @@
   },
   "homepage": "https://github.com/iredelmeier/jasmine-webpack-plugin#readme",
   "dependencies": {
-    "html-webpack-plugin": "^1.6.2"
+    "html-webpack-plugin": "^1.6.2",
+    "jasmine-core": "^2.3.4"
   },
   "peerDependencies": {
     "jasmine-core": "^2.3.4"
-  }
+  },
+  "devDependencies": {}
 }

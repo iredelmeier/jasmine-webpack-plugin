@@ -7,9 +7,12 @@ var jasmineCore = require('jasmine-core');
 var template = require('./specRunnerTemplate');
 
 var jasmineFiles = jasmineCore.files;
-var jasmineJsFiles = resolveJasmineFiles(jasmineFiles.path, jasmineFiles.jsFiles);
-var jasmineCssFiles = resolveJasmineFiles(jasmineFiles.path, jasmineFiles.cssFiles);
-var jasmineBootFiles = resolveJasmineFiles(jasmineFiles.bootDir, jasmineFiles.bootFiles);
+var jasminePath = resolveJasmineDir(jasmineFiles.path);
+var jasmineBootDir = resolveJasmineDir(jasmineFiles.bootDir);
+
+var jasmineJsFiles = resolveJasmineFiles(jasminePath, jasmineFiles.jsFiles);
+var jasmineCssFiles = resolveJasmineFiles(jasminePath, jasmineFiles.cssFiles);
+var jasmineBootFiles = resolveJasmineFiles(jasmineBootDir, jasmineFiles.bootFiles);
 
 function JasmineWebpackPlugin(options) {
   options = options || {};
@@ -23,11 +26,12 @@ function JasmineWebpackPlugin(options) {
   });
 }
 
+function resolveJasmineDir(dirname) {
+  return dirname.replace(process.cwd(), '').replace(/^\//, '');
+}
+
 function resolveJasmineFiles(dirname, files) {
-  dirname = dirname.replace(__dirname, '');
-  return files.map(function(file) {
-    return path.join('./', dirname, file);
-  });
+  return files.map(function(file) { return path.join(dirname, file); });
 }
 
 module.exports = JasmineWebpackPlugin;
