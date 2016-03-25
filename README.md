@@ -24,6 +24,10 @@ module.exports = {
 
 **filename** - output filename; defaults to _specRunner.html
 
+**htmlOptions** - an object of options to pass to
+    [HtmlWebpackPlugin](https://github.com/ampedandwired/html-webpack-plugin);
+    defaults to ``{}``
+
 ### Notes
 
 Webpack doesn't support wildcards in config.entry. As a workaround to easily build

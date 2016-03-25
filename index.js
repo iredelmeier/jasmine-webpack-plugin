@@ -15,16 +15,24 @@ var jasmineCssFiles = resolveJasmineFiles(jasminePath, jasmineFiles.cssFiles);
 var jasmineBootFiles = resolveJasmineFiles(jasmineBootDir, jasmineFiles.bootFiles);
 
 function JasmineWebpackPlugin(options) {
+
   options = options || {};
   var externalJsFiles = options.externalJsFiles || [];
-  return new HtmlWebpackPlugin({
+
+  var htmlOptions = {
     inject: true,
     filename: options.filename || '_specRunner.html',
     templateContent: template,
     jasmineJsFiles: jasmineJsFiles.concat(jasmineBootFiles),
     jasmineCssFiles: jasmineCssFiles,
     externalJsFiles: externalJsFiles
-  });
+  };
+
+  for (var attrname in options.htmlOptions) {
+    htmlOptions[attrname] = options.htmlOptions[attrname];
+  }
+
+  return new HtmlWebpackPlugin(htmlOptions);
 }
 
 function resolveJasmineDir(dirname) {
