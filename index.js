@@ -15,15 +15,22 @@ var jasmineCssFiles = resolveJasmineFiles(jasminePath, jasmineFiles.cssFiles);
 var jasmineBootFiles = resolveJasmineFiles(jasmineBootDir, jasmineFiles.bootFiles);
 
 function JasmineWebpackPlugin(options) {
+  var htmlOptions;
+
   options = options || {};
 
-  return new HtmlWebpackPlugin({
+  htmlOptions = {
     inject: true,
     filename: options.filename || '_specRunner.html',
     templateContent: template,
     jasmineJsFiles: jasmineJsFiles.concat(jasmineBootFiles),
     jasmineCssFiles: jasmineCssFiles
-  });
+  };
+  // Merge user-provided HTML plugin options
+  for (var attrname in options.htmlOptions) {
+    htmlOptions[attrname] = options.htmlOptions[attrname]; }
+
+  return new HtmlWebpackPlugin(htmlOptions);
 }
 
 function resolveJasmineDir(dirname) {
