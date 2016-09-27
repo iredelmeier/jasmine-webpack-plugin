@@ -16,7 +16,7 @@ var jasmineWebpackPlugin = require('jasmine-webpack-plugin');
 module.exports = {
   entry: ['specRoot.js'],
   // ... more configuration
-  plugins: [new JasmineWebpackPlugin()]
+  plugins: [new jasmineWebpackPlugin()]
 };
 ```
 
