@@ -16,13 +16,14 @@ var jasmineBootFiles = resolveJasmineFiles(jasmineBootDir, jasmineFiles.bootFile
 
 function JasmineWebpackPlugin(options) {
   options = options || {};
-
+  var externalJsFiles = options.externalJsFiles || [];
   return new HtmlWebpackPlugin({
     inject: true,
     filename: options.filename || '_specRunner.html',
     templateContent: template,
     jasmineJsFiles: jasmineJsFiles.concat(jasmineBootFiles),
-    jasmineCssFiles: jasmineCssFiles
+    jasmineCssFiles: jasmineCssFiles,
+    externalJsFiles: externalJsFiles
   });
 }
 

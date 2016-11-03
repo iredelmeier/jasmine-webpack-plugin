@@ -10,6 +10,9 @@ var template = '<!DOCTYPE html>' +
     '{% for (var i = 0; i < o.htmlWebpackPlugin.options.jasmineJsFiles.length; i++) { %}' +
       '<script src="{%=o.htmlWebpackPlugin.options.jasmineJsFiles[i]%}"></script>' +
     '{% } %}' +
+    '{% for (var i = 0; i < o.htmlWebpackPlugin.options.externalJsFiles.length; i++) { %}' +
+    '<script src="{%=o.htmlWebpackPlugin.options.externalJsFiles[i]%}"></script>' +
+    '{% } %}' +
   '</head>' +
   '<body>' +
   '</body>' +
