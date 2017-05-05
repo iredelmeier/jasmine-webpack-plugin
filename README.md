@@ -11,7 +11,7 @@ In your webpack configuration:
 ```javascript
 // webpack-test.config.js
 
-var jasmineWebpackPlugin = require('jasmine-webpack-plugin');
+var JasmineWebpackPlugin = require('jasmine-webpack-plugin');
 
 module.exports = {
   entry: ['specRoot.js'],
